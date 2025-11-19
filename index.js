@@ -107,7 +107,7 @@ app.post('/generate-certificate', async (req, res) => {
         }
 
         const templatePath = CERTIFICATE_TEMPLATE_PATH;
-        const bgImagePath = path.join(CERTIFICATE_ASSETS_PATH, 'bg.png');
+        const bgImagePath = path.join(CERTIFICATE_ASSETS_PATH, 'bg.svg');
         const logoImagePath = path.join(CERTIFICATE_ASSETS_PATH, 'logo.svg');
 
         const template = await fs.readFile(templatePath, 'utf-8');
