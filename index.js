@@ -207,7 +207,7 @@ app.post('/generate-certificate', async (req, res) => {
         const safeFullName = fullName
         .toString()
         .replace(/[^a-zA-Z0-9_\-]/g, '_');
-        const filename = `${fullName}.pdf`;
+        const filename = `${safeFullName}.pdf`;
 
         res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
