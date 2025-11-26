@@ -42,7 +42,7 @@
         .certificate {
             position: relative;
             background-image: url(data:image/svg+xml;base64,<%= bgBase64 %>);
-            background-size: cover;
+            background-size: 100% 100%;
             background-repeat: no-repeat;
             background-position: center;
             width: 1828px;
@@ -309,7 +309,7 @@
 
                 <div class="intro-text">Ushbu sertifikat quyidagi shaxsga beriladi:</div>
 
-                <h1 class="recipient-name" style="<%= fullName.length < 10 ? 'font-size: 90px;' : '' %>">
+                <h1 class="recipient-name">
                     <%= fullName %>
                 </h1>
 
