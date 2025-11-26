@@ -309,8 +309,11 @@
 
                 <div class="intro-text">Ushbu sertifikat quyidagi shaxsga beriladi:</div>
 
-                <h1 class="recipient-name" style="<%= fullName.length < 20 ? 'font-size: 100px; line-height: 100px;' : '' %>">
-                    <%= fullName %>
+                <h1 class="recipient-name">
+                    <% const nameParts = fullName.trim().split(' '); %>
+                    <% const firstName = nameParts[0] || ''; %>
+                    <% const lastName = nameParts.slice(1).join(' ') || ''; %>
+                    <%= firstName %><br><%= lastName %>
                 </h1>
 
                 <div class="divider-large"></div>
