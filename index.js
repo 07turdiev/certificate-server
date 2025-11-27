@@ -114,16 +114,6 @@ app.post('/generate-certificate', async (req, res) => {
 
         const bgBase64 = await readFileAsBase64(bgImagePath);
         const logoBase64 = await readFileAsBase64(logoImagePath);
-        // read signature (imzo.svg) if present
-        let signatureBase64 = null;
-        try {
-            const signaturePath = path.join(CERTIFICATE_ASSETS_PATH, 'imzo.svg');
-            signatureBase64 = await readFileAsBase64(signaturePath);
-        } catch (sigErr) {
-            // signature optional — log and continue
-            console.warn('Signature (imzo.svg) not found in assets or failed to read:', sigErr.message);
-            signatureBase64 = null;
-        }
 
         const cleanCertificateId = certificateId.toString().replace('#', '');
         const formattedDate = formatDate(date || new Date());
@@ -140,7 +130,6 @@ app.post('/generate-certificate', async (req, res) => {
             qr_code: qrCodeBase64,
             bgBase64: bgBase64,
             logoBase64: logoBase64
-            , signatureBase64: signatureBase64
         });
 
         browser = await puppeteer.launch({
@@ -160,9 +149,9 @@ app.post('/generate-certificate', async (req, res) => {
 
         // Ensure viewport matches the target pixel dimensions so layout is stable
         await page.setViewport({
-            width: 1828,
-            height: 1073,
-            deviceScaleFactor: 2
+            width: 1828,  // 1920 o'rniga
+            height: 1073, // 1327 o'rniga
+            deviceScaleFactor: 1
         });
 
         // Set HTML content and wait for network to be idle
