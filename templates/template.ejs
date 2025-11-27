@@ -246,13 +246,14 @@
 
         .signature-img {
             position: absolute;
-            /* place signature slightly above the sign line and centered */
             left: 78%;
             top: 78%;
             width: 161px;
             height: auto;
             transform: translateX(-50%);
             z-index: 2;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
         .sign-title {

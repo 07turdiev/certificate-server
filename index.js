@@ -149,9 +149,9 @@ app.post('/generate-certificate', async (req, res) => {
 
         // Ensure viewport matches the target pixel dimensions so layout is stable
         await page.setViewport({
-            width: 1828,  // 1920 o'rniga
-            height: 1073, // 1327 o'rniga
-            deviceScaleFactor: 1
+            width: 1828,
+            height: 1073,
+            deviceScaleFactor: 2
         });
 
         // Set HTML content and wait for network to be idle
